@@ -1,309 +1,51 @@
 <html>
-    
-    <head> 
-        
-        <title> Smash the Boxes & circles </title>
-        
-        <style type="text/css"> 
-        
-            #shape {
-                
-                width: 100px;
-                height: 100px;
-                background-color: red;
-                display: none;
-                position: relative;
-            }
-            
-            body {
-                background-image: url(anime2.jpg);
-                background-repeat: round;
-                
-            }
-            
-            h1{
-               
-                font-size: 350%;
-                text-align: center;
-            }
-            
-            #hit{ 
-                
-                font-size: 50%;
-            }
-            
-            #timeTaken {
-                font-weight: bold;
-                font-size: 150%;
-                
-               
-            }
-            
-            h3{ animation: blinker 0.8s linear infinite;
-                font-size: 250%;
-                text-align: center;
-                display: none;
-                color: yellow;
-                position: relative;
-                top: 40;
-                background-color: black;
-                width: 700px;
-                margin-left: 400px;
-                border-radius: 10px;
-                
-            }
-            
-            #oops{
-                font-size: 50%;
-                color: whitesmoke;
-            }
-            
-            footer{
-                
-                text-align: right;
-                position: fixed;
-                
-                left: 0;
-                bottom: 0;
-                width: 100%;
-                font-weight: normal;
-                font-size: 120%;
-                color: black;
-                    
-            }
-            
-            #audio{
-                display: none;
-            }
-            
-            #audio1{
-                display: none;
-            }
-            
-            #audio2{
-                display: none;
-            }
-        
-            @keyframes blinker {
-            50% {
-                opacity: 0;
-                }
-            }
-            
-            #gameover{
-                font-size: 150%;
-                color: red;
-                
+	<head>
+		<title>Smash the Shapes</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap"
+			rel="stylesheet" />
+		<link rel="stylesheet" href="styles.css" />
+		<script src="myscripts.js"></script>
+	</head>
 
-            }
-            
-             h4 { animation: blinker 0.6s linear infinite;
-                font-size: 250%;
-                text-align: center;
-                display: none;
-                color: yellow;
-                position: relative;
-                top: 50;
-                background-color: black;
-                width: 600px;
-                padding: 10;
-                margin-left: 450PX ;
-                border-radius: 10px;
-            }
-         
-            #success{
-                font-size: 50%;
-                color: whitesmoke;
-                }
-            
-             #victory{
-                font-size: 200%;
-                color: red;
-            }
-            
-            #start{
-                
-                  background-color: purple;
-                  border: none;
-                  color: white;
-                  padding: 13px 30px;
-                  text-align: center;
-                  text-decoration: none;
-                  display: inline-block;
-                  font-size: 30px;
-                  font-weight: normal;
-                  border-radius: 50px;
-                  margin-left: 670px;
-                
-                
-            }
-            
-            #start:hover{
-               cursor: pointer;
-                 box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+	<body>
+		<h1 class="play-bold">
+			Smash the Shapes <br />
+			<span id="hit"> [ Ⱨł₮ 30 ₮Ø ₩ł₦ ] </span>
+		</h1>
+		<hr />
+		<p id="timeTaken" class="play-regular"></p>
+		<h2 id="Score" class="play-regular"></h2>
+		<button id="start" class="play-bold">|| Start Game ||</button>
+		<div id="shape"></div>
 
-            }
-            
-            
-            
-            
-            
-            
-        </style>
-    
-    </head>
-    
-    <body>
-        
-        
-        <h1> 🆂🅼🅰🆂🅷 🆃🅷🅴 🅱🅾🆇🅴🆂 & 🅲🅸🆁🅲🅻🅴🆂 <br> <span id="hit"> [ Ⱨł₮ 30 ₮Ø ₩ł₦ ]  </span> </h1> <hr>
-       
-        <p id="timeTaken">  </p>
-        <h2 id="Score">  </h2> 
-        <button id="start"> 𝓢𝓽𝓪𝓻𝓽 </button>
-        <div id="shape"> </div>
-        
-        
-        <audio controls autoplay id="audio">
-             <source src="bubble-pop.mp3" type="audio/mpeg">
-        </audio>
-        
-         <audio controls autoplay id="audio1">
-             <source src="gameover.wav" type="audio/mpeg">
-        </audio>
-        
-         <audio controls autoplay id="audio2">
-             <source src="victory.mp3" type="audio/mpeg">
-        </audio>
+		<audio controls autoplay id="audio">
+			<source src="assets/bubble-pop.mp3" type="audio/mpeg" />
+		</audio>
 
-        
-        <h3 id=playAgain> <span id="gameover"> 🅶🅰🅼🅴 🅾🆅🅴🆁  </span> <br> <span id="oops"> "OOPS! YOU TOOK LONGER THAN 1.25 SEC TO SMASH " </span> <br> ʀᴇꜰʀᴇꜱʜ ᴛᴏ ᴘʟᴀʏ ᴀɢᴀɪɴ </h3>
-        
-        <h4 id=won> <span id="victory"> 🆅🅸🅲🆃🅾🆁🆈
- </span> <br> <span id="success"> " YOU SMASHED 30 BOXES/CIRCLES "  </span> <br>  ʀᴇꜰʀᴇꜱʜ ᴛᴏ ᴘʟᴀʏ ᴀɢᴀɪɴ  </h4>
-            
-    
-        <footer> &copy ᴠɪɴᴇᴇᴛʜ ᴍᴀᴅɪꜱʜᴇᴛᴛɪ- </footer>
-        
-        
-        <script type="text/javascript">
-            
-            var x = document.getElementById("audio");
+		<audio controls autoplay id="audio1">
+			<source src="assets/gameover.wav" type="audio/mpeg" />
+		</audio>
 
-                    function enableAutoplay() { 
-                      x.autoplay = true;
-                      x.load();
-                    }
+		<audio controls autoplay id="audio2">
+			<source src="assets/victory.mp3" type="audio/mpeg" />
+		</audio>
 
-             var y = document.getElementById("audio1");
+		<h3 id="playAgain">
+			<span id="gameover"> 🅶🅰🅼🅴 🅾🆅🅴🆁 </span> <br />
+			<span id="oops"> "OOPS! YOU TOOK LONGER THAN 1.25 SEC TO SMASH " </span>
+			<br />
+			ʀᴇꜰʀᴇꜱʜ ᴛᴏ ᴘʟᴀʏ ᴀɢᴀɪɴ
+		</h3>
 
-                    function enableAutoplay1() { 
-                      y.autoplay = true;
-                      y.load();
-                    }
-            
-            var z = document.getElementById("audio2");
+		<h4 id="won">
+			<span id="victory"> 🆅🅸🅲🆃🅾🆁🆈 </span> <br />
+			<span id="success"> " YOU SMASHED 30 BOXES/CIRCLES " </span> <br />
+			ʀᴇꜰʀᴇꜱʜ ᴛᴏ ᴘʟᴀʏ ᴀɢᴀɪɴ
+		</h4>
 
-                    function enableAutoplay2() { 
-                      z.autoplay = true;
-                      z.load();
-                    }
-       
-            
-                var start = new Date().getTime();
-                var Score = -1;
-                
-               
-                function getRandomColor() {
-                      var letters = '0123456789ABCDEF';
-                      var color = '#';
-                      for (var i = 0; i < 6; i++) {
-                        color += letters[Math.floor(Math.random() * 16)];
-                      }
-                      return color;
-                    }
-            
-                document.getElementById("start").onclick = function() { 
-                    document.getElementById("start").style.display = "none";
-                    
-                function shapeAppear() {
-                    
-                    var width = Math.random() * 400;
-                    var width = (Math.random() * 200) + 100;
-                    var top = Math.random() * 200;
-                    var left = Math.random() * 1000;
-                    
-
-                        if(Math.random() > 0.5 ) {
-
-                            document.getElementById("shape").style.borderRadius = "50%";
-
-                        } else {
-
-                            document.getElementById("shape").style.borderRadius = "0%";
-
-                        }
-                    
-                    document.getElementById("shape").style.width = width + "px";
-                    document.getElementById("shape").style.height = width + "px";
-                    document.getElementById("shape").style.top = top + "px";
-                    document.getElementById("shape").style.left= left + "px";
-                    document.getElementById("shape").style.display = "block";
-                    document.getElementById("shape").style.backgroundColor = getRandomColor();  
-                   
-                     start = new Date().getTime();
-                    
-                    }
-                    
-               
-            
-                function appearAfterDelay(){
-                    
-                    setTimeout(shapeAppear, Math.random() * 1500 );
-                    Score++;
-                }
-            
-            appearAfterDelay();
-            
-             
-
-                    document.getElementById("shape").onclick = function() {
-
-                        document.getElementById("shape").style.display = "none";
-                        enableAutoplay();
-                        var end = new Date().getTime();
-                        var time = (end - start ) / 1000;
-
-
-                        document.getElementById("timeTaken").innerHTML = " 🆃🅸🅼🅴 🆃🅰🅺🅴🅽 = " + time +" 🆂 " ;
-
-                        if( Score == 30 ) {
-
-                            document.getElementById("won").style.display = "block";
-                            enableAutoplay2();
-
-                        } else{
-
-                            if(time > 1.25) {
-                                
-                            enableAutoplay1();
-                            document.getElementById("Score").innerHTML = "🆈🅾🆄🆁 🆂🅲🅾🆁🅴 :" + Score;
-                            document.getElementById("playAgain").style.display = "block";
-
-                        } else {
-
-                            appearAfterDelay();
-                        }
-
-                        }
-                    }
-                    
-                 }
-        
-        </script>
-    
-    </body>
-
-
-
+		<footer>&copy ᴠɪɴᴇᴇᴛʜ ᴍᴀᴅɪꜱʜᴇᴛᴛɪ</footer>
+	</body>
 </html>
